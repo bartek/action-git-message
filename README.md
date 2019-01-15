@@ -12,9 +12,10 @@ workflow "git message quality action" {
 }
 
 action "post git quality control" {
-    uses = "bartek/actiong-git-message@master"
+    uses = "bartek/action-git-message@master"
     secrets = ["GITHUB_TOKEN"]
 }
+```
 
 # Tests
 
