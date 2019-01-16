@@ -1,0 +1,11 @@
+{"body" : "Hello!
+\n\n
+Looks like your git commit message violates one or more rules of making great
+git commit messages.
+\n\n
+I, your friendly bot with no name, recommends reading the following to review
+best practices:
+\n\n
+https://chris.beams.io/posts/git-commit/
+\n\n
+Happy coding!"}
