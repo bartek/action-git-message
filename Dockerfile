@@ -10,6 +10,6 @@ RUN apk add --no-cache \
     curl \
     git
 
-COPY "run-git-mesage-check.sh" /usr/bin/run-git-message-check
+COPY "run-git-message-check.sh" /usr/bin/run-git-message-check
 
 CMD ["sh", "/usr/bin/run-git-message-check"]
