@@ -9,10 +9,9 @@ API_HEADER="Accept: application/vnd.github.${API_VERSION}+json; application/vnd.
 AUTH_HEADER="Authorization: token ${GITHUB_TOKEN}"
 
 post_quality_control_message() {
-   for i in ${!COMMIT_IDS[@]};
+   for i in "${!COMMIT_IDS[@]}";
    do
       id=${COMMIT_IDS[$i]}
-      content=$(<quality_message.txt)
       curl -vvvv -sSL -H "${AUTH_HEADER}" -H "${API_HEADER}" -d @quality_message.json -H "Content-Type: application/json" -X POST "${URI}/repos/${GITHUB_REPOSITORY}/commits/${id}/comments" 
    done
 
@@ -26,7 +25,7 @@ main() {
      message="$(echo "$row" | base64 --decode | jq -r '.message')"
 
      if [ ${#message} -ge 50 ]; then
-        COMMIT_IDS+="$(echo "$row" | base64 --decode | jq -r '.id')"
+        COMMIT_IDS+=("$(echo "$row" | base64 --decode | jq -r '.id')")
         continue
      fi
 
